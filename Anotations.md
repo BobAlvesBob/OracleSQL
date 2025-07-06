@@ -1,3 +1,90 @@
+FUNCIONES STRING
+
+select chr(65) from dual;
+--funciones String
+select chr(65) from dual;
+select ascii('d') from dual;
+--funcion concat
+select concat('buenas', ' tardes') from dual;
+--funcion initcap
+select initcap('buenas tardes') from dual;
+--funcion lower 
+select lower('BUENAS TARDES') from dual;
+--funcion upper
+select upper('buenas tardes') from dual;
+--funcion lpad
+select lpad('oracle',11,'abc') from dual;
+--funcion rpad
+select rpad('oracle',11,'abc') from dual;
+--funcion ltrim
+select ltrim('curso de oracle', 'cur') from dual;
+--funcion rtrim
+select rtrim('curso de oracle', 'veld') from dual;
+--funcion trim
+select trim('  oracle  ') from dual;
+--funcion replace
+select replace('www.oracle.com','w','p') from dual;
+--funcion substring
+select substr('www.oracle.com', 1, 10) from dual;
+select substr('www.oracle.com', -3) from dual;
+--funcion length
+select length('www.oracle.com') as cantidad from dual;
+--funcion instr
+select instr('oracle curso or', 'or') from dual;
+--funcion translate
+select translate('Curso de ORACLE', 'AOE', 'XYZ') from dual;
+
+================================
+ALIAS
+select nombre, laboratorio, precio, precio * 0.7 as "precio con descuento", cantidad 
+from medicamentos;
+select existente*0.2 from MEDICAMENTOS;
+
+================================
+
+COLUMNAS CALCULADAS
+
+update nao e o mesmo
+ select * from libros;
+
+  insert into libros 
+ values('Tomarnocu', default, 'Ed. New World', 20.30, DEFAULT);
+
+ insert into libros 
+ values('El quijote', 'Cervantes', 'Ed. La Mancha', 15.20, 1);
+
+  insert into libros 
+ values('Cien anos de soledad', default, 'Ed. La Mancha', 47, 3);
+
+ select titulo, precio, precio*0.9 from libros;
+                      !=
+  update libros set precio = precio*0.9;
+
+----CONCATENACION
+
+select titulo ||'-'|| autor from libros;
+==========================
+DEFAULT
+
+create table libros(
+  titulo varchar2(40) not null,
+  autor varchar2(30) default 'Desconocido',
+  editorial varchar2(40) not null, 
+  precio number(5,2),
+  cantidad number(3) default 0
+  );
+  
+  insert into libros 
+ values('Tomarnocu', default, 'Ed. New World', 20.30, DEFAULT);
+  
+========================
+Comando TRUNCATE
+
+  delete from articulos;
+  select * from articulos;
+  
+  truncate table articulos;
+
 =========================
 ADICIONAR FOREIGN KEY
 DROP TABLE usuarios;
