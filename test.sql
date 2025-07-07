@@ -1,4 +1,29 @@
 /*
+MAX,
+MIN,
+SUM,
+AVG
+*/
+SELECT * FROM EMPLEADOS;
+SELECT MAX(SUELDO)  AS "MAYOR SUELDO",
+MIN(SUELDO) AS "MENOR SUELDO" FROM EMPLEADOS;
+
+SELECT MAX(cantidadhijos) AS "HIJOS" FROM EMPLEADOS WHERE UPPER(NOMBRE) LIKE UPPER('%Perez%');
+
+SELECT MIN(cantidadhijos) AS "HIJOS" FROM EMPLEADOS WHERE UPPER(NOMBRE) LIKE UPPER('%Perez%');
+
+ALTER TABLE empleados ADD cantidadhijos number(3);
+ALTER TABLE empleados MODIFY cantidadhijos default 0;
+SELECT * FROM EMPLEADOS;
+UPDATE EMPLEADOS set cantidadhijos = TRUNC(DBMS_RANDOM.VALUE(0,5));
+INSERT INTO EMPLEADOS VALUES('Maria Cucaracha', 12343235, 'Calle de las putas 21', '12/12/99', 'Secretaria', 700, default);
+
+SELECT round(avg(CANTIDADHIJOS)) from empleados;
+
+SELECT round(AVG(SUELDO)) AS "Promedio sueldos", max(Sueldo) as "Maximo sueldo" from empleados;
+
+select sum(sueldo) as "Soma de los sueldos" from empleados;
+/*
 COUNT
 */
 SELECT * FROM MEDICAMENTOS;
