@@ -1,10 +1,24 @@
 /*
+IN, NOT IN
+*/
+SELECT * FROM medicamentos WHERE LABORATORIO IN ('Bayer','Bago') ORDER BY 3 ASC;
+
+SELECT * FROM medicamentos WHERE LABORATORIO NOT IN ('Bayer','Bago') ORDER BY 2 ASC;
+
+SELECT * FROM MEDICAMENTOS WHERE CANTIDAD IN (10,200);
+SELECT * FROM MEDICAMENTOS WHERE CANTIDAD BETWEEN 10 and 200;
+
+select * from MEDICAMENTOS WHERE EXTRACT(year from FECHAVENCIMIENTO) in (2019,2020);
+
+select * from MEDICAMENTOS WHERE EXTRACT(month from FECHAVENCIMIENTO) in (02, 10);
+/*
 BETWEEN
 */
 
 select * from MEDICAMENTOS where precio between 5 and 15 order by CANTIDAD desc;
 
 select * from MEDICAMENTOS where cantidad BETWEEN 100 and 200 order by CODIGO;
+
 
 select * from MEDICAMENTOS where FECHAVENCIMIENTO BETWEEN TO_DATE('01/12/2017', 'DD/MM/YYYY') and TO_DATE('01/02/2018', 'DD/MM/YYYY');
 drop table medicamentos;
