@@ -1,4 +1,62 @@
 /*
+GROUP BY
+*/
+select * from visitors;
+
+SELECT city as Ciudad, count(*) as Numero_de_Chicas from visitors where age<30
+group by city;
+
+select city, count(phone) as Telefono from visitors
+group by city; 
+
+select sex as Sexo, sum(purchase_amount) as MontoCompra from visitors
+where sex is not null
+group by sex;
+
+select sex as Sexo, city as Ciudad, max(purchase_amount) as "Mayor",
+min(purchase_amount) as "Menor" from VISITORS
+where sex is not null AND purchase_amount is not null
+group by sex, city;
+
+
+create table visitors(
+name varchar2(30),
+age number(2),
+sex char(1) default 'f',
+address varchar2(30),
+city varchar2(20) default 'Cordoba',
+phone varchar2(11),
+email varchar2(30) default 'none',
+purchase_amount number(6,2)
+);
+
+-- 1. Primeiro INSERT (este funcionou)
+INSERT INTO visitors
+VALUES ('Susana Molina', 35, default, 'Colon 123', default, null, null, 59.80);
+
+
+INSERT INTO visitors
+VALUES ('Marcos Torres', 29, 'm', 'Colon 123', 'Carlos Paz', default, 'marcostorres@hotmail.com', 150.50);
+
+INSERT INTO visitors
+VALUES ('Mariana Juarez', 45, default, default, 'Carlos Paz', null, default, 23.90);
+
+INSERT INTO visitors (name, age, sex, phone, email)
+VALUES ('Fabian Perez', 36, 'm', '4556677', 'fabianperez@xaxamail.com');
+
+INSERT INTO visitors (name, city, purchase_amount)
+VALUES ('Alejandra Gonzalez', 'La Falda', 280.50);
+
+INSERT INTO visitors (name, age, sex, city, email, purchase_amount)
+VALUES ('Gaston Perez', 29, 'm', 'Carlos Paz', 'gastonperez1@gmail.com', 95.40);
+
+INSERT INTO visitors
+VALUES ('Liliana Torres', 40, default, 'Sarmiento 876', default, default, default, 85);
+
+INSERT INTO visitors
+VALUES ('Gabriela Duarte', 21, null, null, 'Rio Tercero', default, 'gabrielaltorres@hotmail.com', 321.50);
+
+/*
 MAX,
 MIN,
 SUM,
