@@ -1,8 +1,25 @@
+
+
+
+/*
+DISTINCT
+*/
+
+select distinct provincia from clientes;
+
+select COUNT(distinct provincia) as cantidad
+from clientes;
+
+select distinct ciudad from clientes 
+where provincia='Cordoba';
+
+select ciudad, count(ciudad) as "Clientes por Ciudad" from clientes where provincia='Cordoba' group by ciudad;
 /*
 HAVING
 */
 
 SELECT * FROM CLIENTES;
+
 
 SELECT ciudad, provincia, count(*) as "Cantidad"
 from clientes group by ciudad, provincia
