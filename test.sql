@@ -1,3 +1,30 @@
+
+/*
+ALTER TABLE
+CHECK
+*/
+
+create table usuarios(
+  idusuario int not NULL primary key,
+  nombre_usuario varchar(30) not null,
+  dlave_usuario varchar(20) not null
+);
+
+select * from usuarios;
+alter table usuarios rename column dlave_usuario to clave_usuario
+
+alter table usuarios add constraint UQ_nombreusuario 
+unique  (nombre_usuario)
+describe usuarios
+
+insert into USUARIOS values(1, 'usuario1', 'clave1');
+insert into USUARIOS values(2, 'usuario2', 'clave2');
+
+alter table usuarios
+drop constraint UQ_nombreusuario;
+
+
+insert into USUARIOS values(3, 'usuario2', 'clave3');
 /*
 ALTER TABLE
 PRIMARY KEY
