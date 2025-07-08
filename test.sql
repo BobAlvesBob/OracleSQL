@@ -1,4 +1,37 @@
 /*
+ALTER TABLE
+PRIMARY KEY
+*/
+
+
+select * from USER_CONS_COLUMNS where constraint_name = 'CODIGO_PK';
+select * from all_objects where object_name='CODIGO_PK';
+
+ALTER TABLE articulos 
+add constraint codigo_pk
+primary key (id_articulo);
+
+ALTER TABLE ARTICULOS
+DROP CONSTRAINT codigo_pk;
+
+select * from ARTICULOS;
+
+describe articulos;
+
+SELECT constraint_name, column_name
+FROM user_cons_columns 
+WHERE table_name = 'ARTICULOS';
+
+SELECT constraint_name 
+FROM user_constraints 
+WHERE table_name = 'ARTICULOS' 
+AND constraint_type = 'P';
+
+ALTER TABLE articulos 
+RENAME CONSTRAINT SYS_C008224 TO codigo_pk;
+
+
+/*
 SEQUENCE
 */
 --NOMBRE DE SECUENCIA
