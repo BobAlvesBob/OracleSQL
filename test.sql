@@ -1,6 +1,49 @@
+/*
+SEQUENCE
+*/
+--NOMBRE DE SECUENCIA
+--VALOR ENTERO
+--VALOR MINIMO
+--CICLO
+
+CREATE SEQUENCE seq_teste
+START WITH 1
+INCREMENT BY 2
+MINVALUE 1
+MAXVALUE 19
+NOCYCLE
+CACHE 10
+ORDER;
 
 
+CREATE SEQUENCE seq_libros
+START WITH 1
+INCREMENT BY 1
+MAXVALUE 99999
+MINVALUE 1
+CYCLE;
 
+select seq_teste.nextval from dual;
+
+alter sequence seq_teste CACHE 5;
+alter sequence seq_teste CYCLE;
+alter sequence seq_teste MAXVALUE 190;
+
+CREATE TABLE libros(
+  idlibro int not null primary KEY,
+  titulo varchar(40) not null, 
+  autor varchar(40) null,
+  precio number(5,2)
+);
+
+select * from libros;
+
+insert into libros values(seq_teste.currval, 'El quijote', 'Miguel de Cervantes', 500.00);
+insert into libros values(seq_libros.nextval, 'Cien anos de soledad','Gabriel G. Marquez', 600.00 );
+
+
+truncate table libros;
+drop SEQUENCE seq_teste;
 /*
 DISTINCT
 */
