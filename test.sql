@@ -1,4 +1,32 @@
  /*
+ SUBQUERIES
+ */
+ select * from students
+ where grade=(select  max(grade) from STUDENTS);
+
+ select * from students
+ where grade < (select ROUND(avg(grade)) AS Promedio from STUDENTS );
+ 
+ SELECT * FROM students;
+
+ drop table  students;
+
+create table students(
+document char(8),
+name varchar2(30),
+grade number(4,2),
+primary key(document));
+
+insert into students values('30111111','Ana Algarbe',10);
+insert into students values('30222222','Bernardo Bustamante',9);
+insert into students values('30333333','Carolina Conte',8);
+insert into students values('30444444','Diana Dominguez',9);
+insert into students values('30555555','Fabian Fuentes',8);
+insert into students values('30666666','Gaston Gonzalez',7);
+insert into students values('30644556','Federico Suarez',6);
+insert into students values('30689898','Miguel Pantaleon',6);
+ 
+ /*
  MODIFY
  */
  create table tipo_dato(
