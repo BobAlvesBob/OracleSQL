@@ -1,4 +1,44 @@
 /*
+FOREIGN KEY
+*/
+alter table clientes
+add constraint fk_codigoprovincias
+foreign key (codigoprovincia) 
+references provincias(codigo)
+
+alter table clientes
+drop constraint fk_codigoprovincias
+
+
+describe provincias
+select * from PROVINCIAS;
+select  *  from clientes;
+
+drop table CLIENTES;
+drop table provincias;
+
+create table provincias(
+  codigo number(2) primary key not null,
+  nombre varchar2(20)
+);
+create table clientes(
+  codigo number(5),
+  nombre varchar2(30), 
+  domicilio varchar2(20), 
+  ciudad varchar2(20),
+  codigoprovincia number(2)
+);
+
+ insert into provincias values(1,'Cordoba');
+ insert into provincias values(2,'Santa Fe');
+ insert into provincias values(3,'Misiones');
+ insert into provincias values(4,'Rio Negro');
+
+ insert into clientes values(100,'Perez Juan','San Martin 123','Carlos Paz',1);
+ insert into clientes values(101,'Moreno Marcos','Colon 234','Rosario',2);
+ insert into clientes values(102,'Acosta Ana','Avellaneda 333','Posadas',3);
+ insert into clientes values(103,'Luisa Lopez','Juarez 555','La Plata',6);
+/*
 JOIN DE MAS DE DOS TABLAS
 */
 SELECT s.nombre , d.nombre as "Nombre del Deporte", i.anio as ano
