@@ -1,4 +1,72 @@
  /*
+ ADD, REMOVE COLUMNS
+ */
+
+
+ alter table libros
+
+ add cantidad int;
+ 
+ update libros set cantidad=3;
+
+ alter table libros
+ add (existencia int default 0 not null);
+
+ select * from libros;
+
+alter table libros
+add (vendidos int default 0 not null, 
+en_stock int default 0 not null);
+
+alter table libros
+drop column en_stock;
+
+alter table libros 
+drop(existencia);
+
+ DROP TABLE libros;
+ 
+ create table libros(
+  codigo number(5) not null,
+  titulo varchar2(40) not null,
+  autor varchar2(40) not null,
+  editorial varchar2(40),
+  precio number(8,2)
+ )
+
+ -- Inserindo dados na tabela libros
+INSERT INTO libros VALUES (10001, 'Don Quijote de la Mancha', 'Miguel de Cervantes', 'Planeta', 45.50);
+INSERT INTO libros VALUES (10002, 'Cien años de soledad', 'Gabriel García Márquez', 'Sudamericana', 38.75);
+INSERT INTO libros VALUES (10003, 'El amor en los tiempos del cólera', 'Gabriel García Márquez', 'Oveja Negra', 42.30);
+INSERT INTO libros VALUES (10004, 'La casa de los espíritus', 'Isabel Allende', 'Plaza & Janés', 35.80);
+INSERT INTO libros VALUES (10005, 'Rayuela', 'Julio Cortázar', 'Alfaguara', 41.20);
+INSERT INTO libros VALUES (10006, 'El túnel', 'Ernesto Sabato', 'Seix Barral', 28.90);
+INSERT INTO libros VALUES (10007, 'Pedro Páramo', 'Juan Rulfo', 'Fondo de Cultura Económica', 32.45);
+INSERT INTO libros VALUES (10008, 'La tregua', 'Mario Benedetti', 'Nuevo Siglo', 29.60);
+INSERT INTO libros VALUES (10009, 'Ficciones', 'Jorge Luis Borges', 'Emecé', 36.75);
+INSERT INTO libros VALUES (10010, 'El Aleph', 'Jorge Luis Borges', 'Emecé', 34.25);
+INSERT INTO libros VALUES (10011, 'La ciudad y los perros', 'Mario Vargas Llosa', 'Seix Barral', 39.80);
+INSERT INTO libros VALUES (10012, 'Conversación en La Catedral', 'Mario Vargas Llosa', 'Seix Barral', 48.90);
+INSERT INTO libros VALUES (10013, 'El señor de las moscas', 'William Golding', 'Alianza Editorial', 33.50);
+INSERT INTO libros VALUES (10014, '1984', 'George Orwell', 'Destino', 31.75);
+INSERT INTO libros VALUES (10015, 'Crónica de una muerte anunciada', 'Gabriel García Márquez', 'Diana', 37.20);
+INSERT INTO libros VALUES (10016, 'El principito', 'Antoine de Saint-Exupéry', 'Salamandra', 25.40);
+INSERT INTO libros VALUES (10017, 'Los detectives salvajes', 'Roberto Bolaño', 'Anagrama', 44.60);
+INSERT INTO libros VALUES (10018, 'La sombra del viento', 'Carlos Ruiz Zafón', 'Planeta', 40.35);
+INSERT INTO libros VALUES (10019, 'El código Da Vinci', 'Dan Brown', 'Umbriel', 42.80);
+INSERT INTO libros VALUES (10020, 'Harry Potter y la piedra filosofal', 'J.K. Rowling', 'Salamandra', 35.90);
+
+-- Algunos registros con editorial NULL para mostrar variación
+INSERT INTO libros VALUES (10021, 'Antología poética', 'Federico García Lorca', NULL, 27.50);
+INSERT INTO libros VALUES (10022, 'Veinte poemas de amor', 'Pablo Neruda', NULL, 24.80);
+INSERT INTO libros VALUES (10023, 'Manual de programación', 'Autor Desconocido', NULL, 55.00);
+
+-- Confirmar los datos insertados
+COMMIT;
+
+ select * from libros;
+
+ /*
  MINUS
  */
  SELECT documento, nombre, domicilio from medicos
