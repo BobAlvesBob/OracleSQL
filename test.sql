@@ -3,6 +3,19 @@
 ALTER TABLE
 CHECK
 */
+select * from libros;
+
+alter table libros
+add constraint ck_libros_precio 
+check (precio>=0 and precio<1000);
+
+alter table libros 
+add constraint ck_libros_not_null
+check (precio is not null and titulo is not null);
+/*
+ALTER TABLE
+UNIQUE
+*/
 
 create table usuarios(
   idusuario int not NULL primary key,
