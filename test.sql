@@ -1,4 +1,22 @@
  /*
+ MODIFY
+ */
+ create table tipo_dato(
+  valor int null);
+ 
+ select * from tipo_dato;
+
+insert into tipo_dato values(100);
+
+insert into tipo_dato values('hola');
+
+alter table tipo_dato
+modify valor varchar2(20);
+
+truncate table tipo_dato;
+
+
+ /*
  ADD, REMOVE COLUMNS
  */
 
