@@ -1,4 +1,110 @@
 /*
+FOREIGN KEY ON DELETE
+*/
+alter table clientes
+drop constraint fk_codigoprovincia
+
+
+SELECT * FROM CLIENTES;
+SELECT * from provincias;
+drop table clientes;
+ drop table provincias;
+
+ ALTER TABLE CLIENTES
+ add constraint fk_codigoprovincia 
+ FOREIGN KEY (codigoprovincia) references provincias(codigo)
+ on delete set null;
+
+  ALTER TABLE CLIENTES
+ add constraint fk_codigoprovincia 
+ FOREIGN KEY (codigoprovincia) references provincias(codigo)
+ on delete cascade;
+
+ delete from PROVINCIAS where codigo=2;
+
+ select * from provincias;
+
+ delete from PROVINCIAS where codigo=3;
+
+
+ create table clientes (
+  codigo number(5),
+  nombre varchar2(30),
+  domicilio varchar2(30),
+  ciudad varchar2(20),
+  codigoprovincia number(2),
+  primary key(codigo)
+ );
+
+ create table provincias(
+  codigo number(2),
+  nombre varchar2(20),
+  primary key (codigo)
+ );
+
+ insert into provincias values(1,'Cordoba');
+ insert into provincias values(2,'Santa Fe');
+ insert into provincias values(3,'Misiones');
+ insert into provincias values(4,'Rio Negro');
+
+ insert into clientes values(100,'Perez Juan','San Martin 123','Carlos Paz',1);
+ insert into clientes values(101,'Moreno Marcos','Colon 234','Rosario',2);
+ insert into clientes values(102,'Acosta Ana','Avellaneda 333','Posadas',3);drop table clientes;
+ drop table provincias;
+
+ create table clientes (
+  codigo number(5),
+  nombre varchar2(30),
+  domicilio varchar2(30),
+  ciudad varchar2(20),
+  codigoprovincia number(2),
+  primary key(codigo)
+ );
+
+ create table provincias(
+  codigo number(2),
+  nombre varchar2(20),
+  primary key (codigo)
+ );
+
+ insert into provincias values(1,'Cordoba');
+ insert into provincias values(2,'Santa Fe');
+ insert into provincias values(3,'Misiones');
+ insert into provincias values(4,'Rio Negro');
+
+ insert into clientes values(100,'Perez Juan','San Martin 123','Carlos Paz',1);
+ insert into clientes values(101,'Moreno Marcos','Colon 234','Rosario',2);
+ insert into clientes values(102,'Acosta Ana','Avellaneda 333','Posadas',3);
+
+
+drop table clientes;
+ drop table provincias;
+
+ create table clientes (
+  codigo number(5),
+  nombre varchar2(30),
+  domicilio varchar2(30),
+  ciudad varchar2(20),
+  codigoprovincia number(2),
+  primary key(codigo)
+ );
+
+ create table provincias(
+  codigo number(2),
+  nombre varchar2(20),
+  primary key (codigo)
+ );
+
+ insert into provincias values(1,'Cordoba');
+ insert into provincias values(2,'Santa Fe');
+ insert into provincias values(3,'Misiones');
+ insert into provincias values(4,'Rio Negro');
+
+ insert into clientes values(100,'Perez Juan','San Martin 123','Carlos Paz',1);
+ insert into clientes values(101,'Moreno Marcos','Colon 234','Rosario',2);
+ insert into clientes values(102,'Acosta Ana','Avellaneda 333','Posadas',3);
+
+/*
 FK VALIDATE
 */
 insert into CLIENTES
