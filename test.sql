@@ -6,6 +6,9 @@
 
  select * from students
  where grade < (select ROUND(avg(grade)) AS Promedio from STUDENTS );
+
+ DELETE FROM STUDENTS
+ WHERE GRADE<(SELECT ROUND(AVG(GRADE)) AS PROMEDIO FROM STUDENTS);
  
  SELECT * FROM students;
 
@@ -16,6 +19,7 @@ document char(8),
 name varchar2(30),
 grade number(4,2),
 primary key(document));
+
 
 insert into students values('30111111','Ana Algarbe',10);
 insert into students values('30222222','Bernardo Bustamante',9);
