@@ -1,3 +1,19 @@
+ /*
+ MINUS
+ */
+ SELECT documento, nombre, domicilio from medicos
+ MINUS
+ SELECT documento,nombre, domicilio from pacientes;
+
+
+/*
+INTERSECT
+*/
+ SELECT documento, nombre, domicilio from medicos
+ intersect
+ SELECT documento,nombre, domicilio from pacientes;
+
+describe pacientes
 /*
 UNION
 */
