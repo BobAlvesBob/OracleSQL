@@ -1,3 +1,41 @@
+/*ROWNUM*/
+SELECT * FROM EMPLEADOS WHERE ROWNUM <6;
+
+SELECT * FROM EMPLEADOS 
+WHERE SUELDO < 600 AND ROWNUM <4;
+
+/*
+VIEWS
+WITH READ ONLY
+*/
+
+CREATE OR REPLACE VIEW V_CLIENTES
+AS SELECT NOMBRE, CIUDAD
+FROM CLIENTES
+with read only;
+
+SELECT * FROM V_CLIENTES;
+
+INSERT INTO V_CLIENTES Values('Miguel Monegro','San Salvador');
+
+SELECT * FROM CLIENTES;
+
+drop table clientes;
+create table clientes(
+  nombre varchar2(40),
+  documento char(8),
+  domicilio varchar2(30),
+  ciudad varchar2(30)
+ );
+ insert into clientes values('Juan Perez','22222222','Colon 1123','Santiago');
+ insert into clientes values('Karina Lopez','23333333','San Martin 254','Monte Rey');
+ insert into clientes values('Luis Garcia','24444444','Caseros 345','Río de janeiro');
+ insert into clientes values('Marcos Gonzalez','25555555','Sucre 458','Santo Domingo');
+ insert into clientes values('Nora Torres','26666666','Bulnes 567','Bogotá');
+ insert into clientes values('Oscar Luque','27777777','San Martin 786','Asunción');
+ insert into clientes values('Pedro Perez','28888888','Colon 234','Buenos Madrid');
+ insert into clientes values('Rosa Rodriguez','29999999','Avellaneda 23','Lima');
+
 /*
 VISTAS
 */
