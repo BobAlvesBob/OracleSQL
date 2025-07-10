@@ -1,4 +1,16 @@
 /*
+VISTAS
+*/
+create or replace view v_promovidos as 
+select * from empleados
+where sueldo like '5%'
+or seccion = 'Secretaria';
+
+select * from v_promovidos;
+
+drop view v_promovidos;
+
+/*
 CREATE TABLE AS
 */
 
